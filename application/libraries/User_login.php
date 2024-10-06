@@ -19,10 +19,12 @@ class User_login
       $nama_user = $cek->nama_user;
       $username = $cek->username;
       $level_user = $cek->level_user;
+      $foto = $cek->foto;
       //buat session
       $this->ci->session->set_userdata('username', $username);
       $this->ci->session->set_userdata('nama_user', $nama_user);
       $this->ci->session->set_userdata('level_user', $level_user);
+      $this->ci->session->set_userdata('foto', $foto);
       redirect('admin');
     } else {
       //jika salah

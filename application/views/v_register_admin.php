@@ -16,28 +16,20 @@
   <link rel="stylesheet" href="<?= base_url() ?>template/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="<?= base_url() ?>"><b>Luxora</b>Interiors</a>
+<body class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="../../index2.html"><b>Register</b>Admin</a>
     </div>
-    <!-- /.login-logo -->
+
     <div class="card">
-      <div class="card-body login-card-body">
-        <p class="login-box-msg">Silahkan Login Admin</p>
+      <div class="card-body register-card-body">
+        <p class="login-box-msg">Register a new membership</p>
 
         <?php
         echo validation_errors('<div class="alert alert-danger alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-exclamation-triangle"></i> Error!</h5>', '</div>');
-
-        if ($this->session->flashdata('error')) {
-          echo '<div class="alert alert-danger alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h5><i class="icon fas fa-times"></i> Error!</h5>';
-          echo $this->session->flashdata('error');
-          echo '</div>';
-        }
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-exclamation-triangle"></i> Error!</h5>', '</div>');
 
         if ($this->session->flashdata('pesan')) {
           echo '<div class="alert alert-success alert-dismissible">
@@ -46,10 +38,9 @@
           echo $this->session->flashdata('pesan');
           echo '</div>';
         }
-
-        echo form_open('auth/login_admin') ?>
+        echo form_open('auth/register'); ?>
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Username">
+          <input type="text" name="nama_user" value="<?= set_value('nama_user') ?>" class="form-control" placeholder="Nama User">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -57,7 +48,23 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="text" name="username" value="<?= set_value('username') ?>" class="form-control" placeholder="Username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" value="<?= set_value('password') ?>" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="ulangi_password" value="<?= set_value('ulangi_password') ?>" class="form-control" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -69,11 +76,8 @@
 
           </div>
           <!-- /.col -->
-          <div class="col-6">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-          </div>
-          <div class="col-6">
-            <a href="<?= base_url() ?>" class="btn btn-success btn-block"> Website</a>
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>
@@ -81,14 +85,12 @@
 
 
 
-        <p class="mb-0">
-          <a href="<?= base_url('auth/register') ?>" class="text-center">Belum Punya Akun?</a>
-        </p>
+        <a href="<?= base_url('auth/login_admin') ?>" class="text-center">Sudah Punya Akun?</a>
       </div>
-      <!-- /.login-card-body -->
-    </div>
+      <!-- /.form-box -->
+    </div><!-- /.card -->
   </div>
-  <!-- /.login-box -->
+  <!-- /.register-box -->
 
   <!-- jQuery -->
   <script src="<?= base_url() ?>template/plugins/jquery/jquery.min.js"></script>
@@ -96,13 +98,6 @@
   <script src="<?= base_url() ?>template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="<?= base_url() ?>template/dist/js/adminlte.min.js"></script>
-  <script>
-    window.setTimeout(function() {
-      $(".alert").fadeTo(500, 0).slideUp(500, function() {
-        $(this).remove();
-      });
-    }, 3000)
-  </script>
 </body>
 
 </html>
